@@ -1,0 +1,31 @@
+.button {
+  margin-right: 12px;
+}
+.p {
+  display: flex;
+  justify-content: flex-start;
+  width: 200px;
+  margin: 0;
+  margin-left: 48px;
+  margin-bottom: 16px;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.phone {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  top: 68px;
+  left: -110px;
+}
+.person {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  top: 28px;
+  left: -90px;
+}

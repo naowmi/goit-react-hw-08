@@ -1,0 +1,11 @@
+.input {
+  width: 480px;
+  height: 30px;
+}
+.p {
+  display: flex;
+}
+.box {
+  display: flex;
+  flex-direction: column;
+}

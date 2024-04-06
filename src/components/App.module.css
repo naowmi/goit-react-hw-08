@@ -1,0 +1,9 @@
+.title {
+  display: flex;
+}
+.container {
+  width: 1920px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}

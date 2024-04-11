@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+.button {
+  width: 100px;
+  height: 40px;
+  margin-right: 12px;
+}

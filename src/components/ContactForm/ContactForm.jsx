@@ -4,18 +4,18 @@ import { useId } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useSelector, useDispatch } from "react-redux";
-import { selectContacts } from "../../redux/contactsSlice";
-import { addContact } from "../../redux/contactsOps";
+import { selectContacts } from "../../redux/contacts/selectors";
+import { addContact } from "../../redux/contacts/operations";
  import { toast } from 'react-toastify';
 const contactSchema = Yup.object().shape({
-        name: Yup.string().min(3, "Too Short!").max(50, "Too Long!").required("Required"),
-        number: Yup.string().min(3, "Too Short!").max(50, "Too Long!").required("Required")
+        name: Yup.string().min(3, "Too Short!").max(50, "Too Long!"),
+        number: Yup.string().min(3, "Too Short!").max(50, "Too Long!")
     })
 const initialValues = {
     name: "",
     number: ""
 }
-export const ContactForm = () => {
+export default function ContactForm() {
     const nameField = useId();
     const numberField = useId();
     const dispatch = useDispatch();
@@ -41,12 +41,12 @@ export const ContactForm = () => {
         >
     <Form className={css.container}>
                 <label htmlFor={nameField} className={css.label}>Name</label>
-                <Field type="text" name='name' id={nameField} className={css.input} ></Field>
+                <Field type="text" name='name' id={nameField} className={css.input} required></Field>
                 <ErrorMessage name="name" as="span" /> 
                 <label htmlFor={numberField} className={css.label}>Number</label>
-                <Field type="text" name='number' pattern="\d{3}-\d{3}-\d{4}" placeholder="xxx-xxx-xxxx" id={numberField} className={css.input}></Field>
+                <Field type="text" name='number' pattern="\d{3}-\d{3}-\d{4}" placeholder="xxx-xxx-xxxx" id={numberField} className={css.input} required></Field>
                 <ErrorMessage name="number" as="span" /> 
-                <button type="submit">Add contact</button>
+                <button className={css.button} type="submit">Add contact</button>
     </Form>       
   </Formik>
     )

@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  gap: 36px;
+  font-size: 24px;
+  padding-left: 16px;
+}
+.link {
+  color: #fff;
+}
+.link:hover {
+  text-decoration: underline;
+  color: #ce932c;
+}
+.isActive {
+  color: #f29231;
+}

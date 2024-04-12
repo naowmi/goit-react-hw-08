@@ -1,0 +1,20 @@
+.link {
+  position: fixed;
+  top: 100px;
+  left: 20px;
+  font-size: 24px;
+  color: #d2a140;
+}
+.link:hover {
+  color: #a2751b;
+}
+
+.info {
+  font-size: 64px;
+  display: flex;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}

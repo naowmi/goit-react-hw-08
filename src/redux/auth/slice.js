@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { registerUser, logInUser, logOutUser, refreshUser } from "./operations";
+import { register, logIn, logOut, refreshUser } from "./operations";
 const pending = (state) => {
     state.error = false,
     state.isLoggedIn = false,
@@ -24,28 +24,28 @@ const authSlice = createSlice({
     },
     extraReducers: builder => builder
         //* REGISTER USER
-        .addCase(registerUser.pending, pending)
-        .addCase(registerUser.fulfilled, (state, action) => {
+        .addCase(register.pending, pending)
+        .addCase(register.fulfilled, (state, action) => {
             state.error = false;
             state.loading = false
             state.user = action.payload.user;
             state.token = action.payload.token;
             state.isLoggedIn = true;
         })
-        .addCase(registerUser.rejected, rejected)
+        .addCase(register.rejected, rejected)
          //* LOG IN USER
-        .addCase(logInUser.pending, pending)
-        .addCase(logInUser.fulfilled, (state, action) => {
+        .addCase(logIn.pending, pending)
+        .addCase(logIn.fulfilled, (state, action) => {
             state.error = false;
             state.loading = false;
             state.user = action.payload.user;
             state.token = action.payload.token;
             state.isLoggedIn = true;
         })
-        .addCase(logInUser.rejected, rejected)
+        .addCase(logIn.rejected, rejected)
          //* LOG OUT USER
-        .addCase(logOutUser.pending, pending)
-        .addCase(logOutUser.fulfilled, (state) => {
+        .addCase(logOut.pending, pending)
+        .addCase(logOut.fulfilled, (state) => {
             state.error = false;
             state.loading = false;
             state.user = {
@@ -55,7 +55,7 @@ const authSlice = createSlice({
             state.token = null;
             state.isLoggedIn = false;
         })
-        .addCase(logOutUser.rejected, rejected)
+        .addCase(logOut.rejected, rejected)
          //* REFRESH USER
         .addCase(refreshUser.pending, (state) => {
             state.error = false;
